@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar · Nuestras citas</title>
+  <link rel="icon" href="img/deco/cuernitos.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <main class="login">
+    <img class="deco" src="img/deco/estrella.svg" alt="" style="width:26px; left:14%; top:12%">
+    <img class="deco" src="img/deco/estrella.svg" alt="" style="width:18px; right:16%; top:22%">
+    <img class="deco" src="img/deco/cuernitos.svg" alt="" style="width:42px; left:10%; bottom:14%">
+    <img class="deco" src="img/deco/pajarito.svg" alt="" style="width:50px; right:12%; bottom:10%">
+
+    <div class="login-caja">
+      <img class="login-sticker login-sticker--kuromi" src="img/stickers/kuromi.png" alt="">
+      <img class="login-sticker login-sticker--snoopy" src="img/stickers/snoopy.png" alt="">
+
+      <form class="panel login-panel" id="form-login" novalidate>
+        <span class="bocadillo">¿quién eres?</span>
+        <h1>Nuestras citas</h1>
+
+        <label class="campo">
+          Usuario
+          <input name="usuario" autocomplete="username" autocapitalize="none" required>
+        </label>
+        <label class="campo">
+          Contraseña
+          <input name="contrasena" type="password" autocomplete="current-password" required>
+        </label>
+
+        <p class="login-error" role="alert" hidden></p>
+        <button class="boton" type="submit">Entrar 💜</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    var form = document.getElementById("form-login");
+    var error = form.querySelector(".login-error");
+
+    // Si ya entró antes, directo al inicio
+    try {
+      if (localStorage.getItem("citas-sesion")) location.replace("index.html");
+    } catch (e) {}
+
+    function mostrarError(texto) {
+      error.textContent = texto;
+      error.hidden = false;
+      form.classList.remove("sacudir");
+      void form.offsetWidth;
+      form.classList.add("sacudir");
+    }
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      var usuario = form.elements.usuario.value.trim().toLowerCase();
+      var contrasena = form.elements.contrasena.value;
+
+      var datos;
+      try {
+        var resp = await fetch("usuarios.json", { cache: "no-store" });
+        datos = await resp.json();
+      } catch (err) {
+        mostrarError("No pude leer usuarios.json. Abre la página desde GitHub Pages o un servidor local.");
+        return;
+      }
+
+      var quien = datos.usuarios.find(function (u) {
+        return u.usuario.toLowerCase() === usuario && u.contrasena === contrasena;
+      });
+      if (!quien) {
+        mostrarError("Mmm… ese no es el usuario o la contraseña.");
+        return;
+      }
+
+      try {
+        localStorage.setItem("citas-sesion", JSON.stringify({ usuario: quien.usuario, nombre: quien.nombre }));
+      } catch (e) {}
+
+      // Regresa a la página que se quería abrir, si era de este mismo sitio
+      var volver = "index.html";
+      try {
+        var guardada = sessionStorage.getItem("citas-volver");
+        sessionStorage.removeItem("citas-volver");
+        if (guardada && new URL(guardada, location.href).origin === location.origin) volver = guardada;
+      } catch (e) {}
+      location.replace(volver);
+    });
+  </script>
+</body>
+</html>

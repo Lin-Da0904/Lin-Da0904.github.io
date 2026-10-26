@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuestras citas</title>
+  <script src="js/sesion.js" data-raiz=""></script>
+  <meta name="description" content="Nuestro diario de citas, una página por cada recuerdo.">
+  <link rel="icon" href="img/deco/cuernitos.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+  <header class="hero">
+    <!-- Pon tus stickers en img/stickers/ con estos nombres y aparecerán solos.
+         Si no existen, se muestra la decoración por defecto. -->
+    <img class="sticker sticker--izq" src="img/stickers/kuromi4.png" alt=""
+         onerror="this.onerror=null;this.src='img/deco/calavera.svg'">
+    <img class="sticker sticker--der" src="img/stickers/snoopy4.png" alt=""
+         onerror="this.onerror=null;this.src='img/deco/casita.svg'">
+
+    <img class="deco" src="img/deco/estrella.svg" alt="" style="width:28px; left:22%; top:30px">
+    <img class="deco" src="img/deco/estrella.svg" alt="" style="width:18px; right:24%; top:150px">
+    <img class="deco" src="img/deco/pajarito.svg" alt="" style="width:54px; right:18%; bottom:40px">
+    <img class="deco" src="img/deco/cuernitos.svg" alt="" style="width:44px; left:16%; bottom:60px">
+
+    <div class="contenedor">
+      <p class="dedicatoria">Te amo, vamos pasito a pasito a tu ritmo 🖤</p>
+      <span class="bocadillo">querido diario:</span>
+      <h1>Nuestras citas</h1>
+      <p class="subtitulo">Cada salida juntos tiene su propia página. Aquí guardamos los lugares, las fotos y las cositas que no queremos olvidar.</p>
+
+      <div class="contador">
+        <span class="chip">hola, <strong data-nombre></strong> 💜</span>
+        <span class="chip"><strong id="total-citas">0</strong> citas</span>
+        <span class="chip">desde el 19 oct 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="contenedor">
+    <h2 class="titulo-seccion"><img src="img/deco/huella.svg" alt=""> Todas las citas</h2>
+
+    <!-- =========================================================
+         LISTA DE CITAS (la más reciente primero)
+         Para agregar una nueva, copia un bloque <a class="cita-card">
+         y pégalo ARRIBA del todo, cambiando enlace, fecha y textos.
+         ========================================================= -->
+    <section class="citas">
+
+      <a class="cita-card" href="citas/2026-10-23-pasito-a-patito.html">
+        <div class="portada">
+          <img class="foto" src="img/citas/2026-10-23/portada.webp" alt="Vista aérea de una plaza comercial rodeada de cerros">
+        </div>
+        <span class="fecha">23 oct 2026</span>
+        <h3>Pasito a patito</h3>
+        <span class="lugar">📍 Tlaxcala</span>
+        <p>Una paletita en la cafetería, las mesitas de la plaza, unos tacos y vueltas por el centro.</p>
+        <span class="leer">Leer recuerdo →</span>
+      </a>
+
+      <a class="cita-card" href="citas/2026-10-19-biblioteca.html">
+        <div class="portada">
+          <img class="foto" src="img/citas/2026-10-19/portada.webp" alt="Fachada de ladrillo rojo con arcos y jardines">
+        </div>
+        <span class="fecha">19 oct 2026</span>
+        <h3>Biblioteca, café y Casa de la Cultura</h3>
+        <span class="lugar">📍 Tlaxcala</span>
+        <p>Un café en la biblioteca de su facultad y una tarde en la Casa de la Cultura.</p>
+        <span class="leer">Leer recuerdo →</span>
+      </a>
+
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie-stickers">
+      <img src="img/stickers/kuromi5.png" alt="">
+      <img src="img/stickers/snoopy5.png" alt="">
+    </div>
+    hecho con 💜 para guardar nuestros recuerdos
+    <div><button class="boton boton--chico" type="button" onclick="cerrarSesion()">cerrar sesión</button></div>
+  </footer>
+
+  <script>
+    // Cuenta las tarjetas para el contador de la portada
+    document.getElementById("total-citas").textContent =
+      document.querySelectorAll(".cita-card").length;
+  </script>
+</body>
+</html>

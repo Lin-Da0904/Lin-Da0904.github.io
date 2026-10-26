@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- =============================================================
+     PLANTILLA DE CITA
+     1. Copia este archivo y renómbralo como AAAA-MM-DD-nombre.html
+        (sin el guion bajo inicial; los archivos que empiezan con "_"
+        no se publican en GitHub Pages).
+     2. Cambia todo lo que está entre [CORCHETES].
+     3. Agrega su tarjeta en index.html y actualiza los botones
+        "anterior / siguiente" de la cita previa.
+     ============================================================= -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[Título de la cita] · Nuestras citas</title>
+  <script src="../js/sesion.js" data-raiz="../"></script>
+  <link rel="icon" href="../img/deco/cuernitos.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+
+  <div class="contenedor barra">
+    <a class="boton" href="../index.html">← Todas las citas</a>
+  </div>
+
+  <article class="contenedor cita">
+
+    <header class="panel cabecera">
+      <!-- Esquina: siempre un Kuromi nuevo (kuromi6.png, kuromi7.png...) -->
+      <img class="sticker-esquina" src="../img/stickers/kuromi6.png" alt=""
+           onerror="this.onerror=null;this.src='../img/deco/calavera.svg'">
+      <span class="fecha">[DD mes AAAA]</span>
+      <h1>[Título de la cita]</h1>
+      <p class="lugar">📍 [Lugar]</p>
+
+      <dl class="datos">
+        <div><dt>Comimos</dt><dd>[Comida]</dd></div>
+        <div><dt>Canción del día</dt><dd>[Canción]</dd></div>
+        <div><dt>Clima</dt><dd>[Clima]</dd></div>
+        <div><dt>Calificación</dt><dd>💜💜💜💜💜</dd></div>
+      </dl>
+    </header>
+
+    <section class="panel">
+      <h2><img src="../img/deco/casita.svg" alt=""> Qué hicimos</h2>
+      <p>[Cuenta aquí cómo fue la cita. Puedes poner varios párrafos.]</p>
+      <!-- Firma: siempre un Snoopy nuevo (snoopy6.png, snoopy7.png...) -->
+      <div class="despedida">
+        <p class="firma">[Despedida o firma]</p>
+        <img class="despedida-sticker" src="../img/stickers/snoopy6.png" alt=""
+             onerror="this.onerror=null;this.src='../img/deco/pajarito.svg'">
+      </div>
+    </section>
+
+    <blockquote class="frase">
+      <span class="bocadillo">[Una frase que se dijo ese día]</span>
+      <cite>— [quién la dijo]</cite>
+    </blockquote>
+
+    <section class="galeria">
+      <!-- Guarda las fotos en img/citas/AAAA-MM-DD/ y repite este bloque por foto -->
+      <figure class="polaroid">
+        <img src="../img/citas/[AAAA-MM-DD]/foto1.jpg" alt="[Descripción de la foto]">
+        <figcaption>[Pie de foto]</figcaption>
+      </figure>
+
+      <!-- Sin foto todavía: usa este bloque de relleno -->
+      <figure class="polaroid">
+        <div class="foto-vacia"><img src="../img/deco/calavera.svg" alt=""></div>
+        <figcaption>[Pie de foto]</figcaption>
+      </figure>
+    </section>
+
+    <section class="panel">
+      <h2><img src="../img/deco/cuernitos.svg" alt=""> Lo mejor del día</h2>
+      <ul>
+        <li>[Momento favorito]</li>
+        <li>[Otro momento]</li>
+      </ul>
+    </section>
+
+    <nav class="pager">
+      <!-- Si no hay anterior o siguiente, deja el enlace con class="boton oculto" -->
+      <a class="boton" href="[archivo-anterior].html">← Anterior</a>
+      <a class="boton oculto" href="#">Siguiente →</a>
+    </nav>
+
+  </article>
+
+  <footer class="pie">hecho con 💜 para guardar nuestros recuerdos</footer>
+</body>
+</html>

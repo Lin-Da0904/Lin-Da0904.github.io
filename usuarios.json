@@ -1,0 +1,6 @@
+{
+  "usuarios": [
+    { "usuario": "linn", "contrasena": "teamo0904", "nombre": "Linn" },
+    { "usuario": "dani", "contrasena": "perdonlinn0904", "nombre": "Dani" }
+  ]
+}
