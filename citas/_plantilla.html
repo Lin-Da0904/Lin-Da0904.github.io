@@ -60,16 +60,21 @@
       <cite>— [quién la dijo]</cite>
     </blockquote>
 
-    <section class="galeria">
-      <!-- Guarda las fotos en img/citas/AAAA-MM-DD/ y repite este bloque por foto -->
+    <h2 class="titulo-seccion"><img src="../img/deco/estrella.svg" alt=""> Memorias de videos</h2>
+    <section class="galeria galeria--completa">
+      <!-- Guarda los videos (mp4) en videos/AAAA-MM-DD/ y repite este bloque por video -->
       <figure class="polaroid">
-        <img src="../img/citas/[AAAA-MM-DD]/foto1.jpg" alt="[Descripción de la foto]">
-        <figcaption>[Pie de foto]</figcaption>
+        <video src="../videos/[AAAA-MM-DD]/[nombre-del-video].mp4#t=0.1" controls playsinline preload="metadata"></video>
+        <figcaption>[Pie del video]</figcaption>
       </figure>
+    </section>
 
-      <!-- Sin foto todavía: usa este bloque de relleno -->
+    <h2 class="titulo-seccion"><img src="../img/deco/huella.svg" alt=""> Fotos extra</h2>
+    <section class="galeria galeria--completa">
+      <!-- Guarda las fotos en img/citas/AAAA-MM-DD/ como citaXfY.webp
+           (X = número de cita, Y = número de foto: cita4f1, cita4f2...) -->
       <figure class="polaroid">
-        <div class="foto-vacia"><img src="../img/deco/calavera.svg" alt=""></div>
+        <img src="../img/citas/[AAAA-MM-DD]/cita[X]f1.webp" alt="[Descripción de la foto]" loading="lazy">
         <figcaption>[Pie de foto]</figcaption>
       </figure>
     </section>

@@ -428,6 +428,18 @@ a { color: inherit; }
   color: var(--tinta);
 }
 
+/* Fotos extra y videos: se ven completos, sin recortar */
+.galeria--completa { align-items: start; }
+.galeria--completa .polaroid > img,
+.polaroid > video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: auto;
+  border: 2px solid var(--tinta);
+  background: var(--tinta);
+}
+
 /* ---------- Navegación entre citas ---------- */
 .pager {
   display: flex;
